@@ -49,11 +49,13 @@ JqueryGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     name: 'name',
-    title: 'Project Name:'.bold
+    title: 'Project Name:'
   }, {
-    name: 'title'
+    name: 'title',
+    'default': 'Awesome jQuery plugin'
   }, {
-    name: 'description'
+    name: 'description',
+    'default': 'The best jQuery plugin ever.'
   }, {
     name: 'version'
   }, {
@@ -61,8 +63,10 @@ JqueryGenerator.prototype.askFor = function askFor() {
   }, {
     name: 'bugs'
   }, {
-    name: 'licenses',
+    name: 'license',
     'default': 'MIT'
+  }, {
+    name: 'github_username',
   }, {
     name: 'author_name'
   }, {
@@ -78,6 +82,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
     ).join(' ') + ':';
   }.bind(this);
 
+  // Generate prompt messages if only the name is defined.
   prompts.map(function (entry) {
     if (entry.message === undefined) {
       entry.message = nameToMessage(entry.name);
@@ -85,21 +90,44 @@ JqueryGenerator.prototype.askFor = function askFor() {
     return entry;
   }.bind(this));
 
+  this.currentYear = (new Date()).getFullYear();
+
   this.prompt(prompts, function (err, props) {
     if (err) {
       return this.emit('error', err);
     }
 
     this.props = props;
+    // For easier access in the templates.
+    this.slugname = this._.slugify(props.name);
     cb();
   }.bind(this));
 };
 
-JqueryGenerator.prototype.app = function app() {
+JqueryGenerator.prototype.src = function app() {
   this.mkdir('src');
+  this.copy('src/jshintrc', 'src/.jshintrc');
+  this.template('src/name.js', 'src/' + this.slugname + '.js');
+};
+
+JqueryGenerator.prototype.test = function app() {
+  this.mkdir('test');
+
+  this.copy('test/jquery-loader.js', 'test/jquery-loader.js');
+  this.copy('test/jshintrc', 'test/.jshintrc');
+  this.template('test/name_test.js', 'test/' + this.slugname + '_test.js');
+  this.template('test/name.html', 'test/' + this.slugname + '.html');
 };
 
 JqueryGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+  this.copy('gitignore', '.gitignore');
+  this.copy('travis.yml', '.travis.yml');
+
+  this.template('README.md');
+  this.template('Gruntfile.js');
+  this.template('_component.json', 'component.json');
+  this.template('_package.json', 'package.json');
+  this.copy('CONTRIBUTING.md', 'CONTRIBUTING.md');
 };

@@ -27,7 +27,17 @@ describe('jquery generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': 'Y'
+      'name': 'myplugin',
+      'title': 'a jquery plugin',
+      'description': 'awesome plugin',
+      'version': '1.0.0',
+      'repository': 'http://github.com',
+      'bugs': 'http://jira.com',
+      'license': 'MIT',
+      'github_username': 'octocat',
+      'author_name': 'Octo Cat',
+      'author_email': 'octo@example.com',
+      'jquery_version': '1.9.1'
     });
 
     this.app.run({}, function () {

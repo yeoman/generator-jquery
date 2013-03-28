@@ -1,5 +1,5 @@
 # jQuery Generator
-[![Build Status](https://secure.travis-ci.org/gruntjs/generator-jquery.png?branch=master)](https://travis-ci.org/gruntjs/generator-jquery)
+[![Build Status](https://secure.travis-ci.org/yeoman/generator-jquery.png?branch=master)](https://travis-ci.org/yeoman/generator-jquery)
 
 > Create a jQuery plugin with [Yeoman][], including QUnit unit tests.
 

@@ -1,18 +1,19 @@
-# {%= title || name %}
+# <%= props.title || props.name %>
 
-{%= description %}
+<%= props.description %>
 
 ## Getting Started
+
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.min.js
-[max]: https://raw.github.com/{%= git_user %}/{%= git_repo %}/master/dist/{%= name %}.js
+[min]: https://raw.github.com/<%= props.github_username %>/jquery-<%= slugname %>/master/dist/jquery.<%= slugname %>.min.js
+[max]: https://raw.github.com/<%= props.github_username %>/jquery-<%= slugname %>/master/dist/jquery.<%= slugname %>.js
 
 In your web page:
 
 ```html
 <script src="jquery.js"></script>
-<script src="dist/{%= name %}.min.js"></script>
+<script src="dist/<%= slugname %>.min.js"></script>
 <script>
 jQuery(function($) {
   $.awesome(); // "awesome"

@@ -5,26 +5,26 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/gruntjs/generator-jquery",
-  "bugs": "https://github.com/gruntjs/generator-jquery/issues",
+  "homepage": "https://github.com/yeoman/generator-jquery",
+  "bugs": "https://github.com/yeoman/generator-jquery/issues",
   "author": {
-    "name": "gruntjs",
-    "email": "user@example.net",
-    "url": "https://github.com/gruntjs"
+    "name": "Pascal Hartig",
+    "email": "phartig@rdrei.net",
+    "url": "https://github.com/passy"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gruntjs/generator-jquery.git"
+    "url": "https://github.com/yeoman/generator-jquery.git"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.10.2"
+    "yeoman-generator": "~0.10.3"
   },
   "devDependencies": {
-    "mocha": "~1.8.1"
+    "mocha": "~1.8.2"
   },
   "engines": {
     "node": ">=0.8.0"
