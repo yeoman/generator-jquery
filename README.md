@@ -6,6 +6,8 @@ This generator is based of
 [grunt-init-jquery](https://github.com/gruntjs/grunt-init-jquery), authored by the
 magnificient GruntJS team.
 
+Maintained by [Pascal Hartig](https://github.com/passy).
+
 [Yeoman]: http://yeoman.io/
 
 
