@@ -3,6 +3,10 @@
 
 > Create a jQuery plugin with [Yeoman][], including QUnit unit tests.
 
+This generator is based of
+[grunt-init-jquery](https://github.com/gruntjs/grunt-init-jquery), authored by the
+magnificient GruntJS team.
+
 [Yeoman]: http://yeoman.io/
 
 ## Installation
