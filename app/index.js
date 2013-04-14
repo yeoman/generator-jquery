@@ -4,17 +4,15 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 
-module.exports = JqueryGenerator;
-
-function JqueryGenerator(args, options, config) {
+var JqueryGenerator = module.exports = function JqueryGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    console.log('\nI\'m all done. Just run ' + 'npm install & bower install'.bold.yellow + ' to install the required dependencies.');
+    this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-}
+};
 
 util.inherits(JqueryGenerator, yeoman.generators.NamedBase);
 
