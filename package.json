@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "A jQuery generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "scaffold",
+    "jquery"
   ],
   "homepage": "https://github.com/yeoman/generator-jquery",
   "bugs": "https://github.com/yeoman/generator-jquery/issues",
@@ -21,10 +23,10 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.10.3"
+    "yeoman-generator": "~0.10.5"
   },
   "devDependencies": {
-    "mocha": "~1.8.2"
+    "mocha": "~1.9.0"
   },
   "engines": {
     "node": ">=0.8.0"

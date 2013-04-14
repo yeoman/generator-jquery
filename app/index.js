@@ -112,7 +112,6 @@ JqueryGenerator.prototype.src = function app() {
 
 JqueryGenerator.prototype.test = function app() {
   this.mkdir('test');
-
   this.copy('test/jquery-loader.js', 'test/jquery-loader.js');
   this.copy('test/jshintrc', 'test/.jshintrc');
   this.template('test/name_test.js', 'test/' + this.slugname + '_test.js');
