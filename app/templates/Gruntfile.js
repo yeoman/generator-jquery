@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       '<%%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '<%%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%%= grunt.template.today("yyyy") %> <%%= pkg.author.name %>;' +
-      ' Licensed <%%= pkg.license %> */\n',
+      ' Licensed <%= props.license %> */\n',
     // Task configuration.
     clean: {
       files: ['dist']

@@ -47,7 +47,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     name: 'name',
-    title: 'Project Name:'
+    message: 'Project Name:'
   }, {
     name: 'title',
     'default': 'Awesome jQuery plugin'
