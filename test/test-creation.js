@@ -14,15 +14,18 @@ describe('jquery generator', function () {
       this.app = helpers.createGenerator('jquery:app', [
         '../../app'
       ]);
+      this.app.options['skip-install'] = true;
       done();
     }.bind(this));
   });
 
   it('creates expected files', function (done) {
     var expected = [
-      // add files you expect to exist here.
       '.jshintrc',
-      '.editorconfig'
+      '.editorconfig',
+      '.bowerrc',
+      ['package.json', /"name": "myplugin"/],
+      'bower.json'
     ];
 
     helpers.mockPrompt(this.app, {
