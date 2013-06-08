@@ -5,10 +5,8 @@
   "keywords": [
     "jquery-plugin"
   ],
-  "homepage": "https://github.com/<%= props.github_username %>/<%= slugname %>",
-  <% if (props.bugs) { %>
-  "bugs": "<%= props.bugs %>",
-  <% } %>
+  "homepage": "https://github.com/<%= props.github_username %>/<%= slugname %>",<% if (props.bugs) { %>
+  "bugs": "<%= props.bugs %>",<% } %>
   "author": {
     "name": "<%= props.author_name %>",
     "email": "<%= props.author_email %>",
