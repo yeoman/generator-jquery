@@ -80,11 +80,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
 
   this.currentYear = (new Date()).getFullYear();
 
-  this.prompt(prompts, function (err, props) {
-    if (err) {
-      return this.emit('error', err);
-    }
-
+  this.prompt(prompts, function (props) {
     this.props = props;
     // For easier access in the templates.
     this.slugname = this._.slugify(props.name);
