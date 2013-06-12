@@ -37,7 +37,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     name: 'name',
-    message: 'Project Name:'
+    message: 'Project Name'
   }, {
     name: 'title',
     default: 'Awesome jQuery plugin'
@@ -61,7 +61,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
     name: 'author_email'
   }, {
     name: 'jquery_version',
-    message: 'jQuery Version:'
+    message: 'jQuery Version'
   }];
 
   var nameToMessage = function (name) {
