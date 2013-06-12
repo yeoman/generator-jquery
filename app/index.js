@@ -20,17 +20,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
-  var welcome =
-  '\n     _-----_' +
-  '\n    |       |' +
-  '\n    |' + '--(o)--'.red + '|   .--------------------------.' +
-  '\n   `---------´  |    ' + 'Welcome to Yeoman,'.yellow.bold + '    |' +
-  '\n    ' + '( '.yellow + '_' + '´U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow.bold + '  |' +
-  '\n    /___A___\\   \'__________________________\'' +
-  '\n     |  ~  |'.yellow +
-  '\n   __' + '\'.___.\''.yellow + '__' +
-  '\n ´   ' + '`  |'.red + '° ' + '´ Y'.red + ' `\n' +
-  '\n' +
+  var welcome = this.yeoman +
   '_Project Name_ should not contain "jquery" or "js" and ' +
   'should be a unique ID not already in use at plugins.jquery.com. _Project ' +
   'title_ should be a human-readable title, and doesn\'t need to contain ' +
@@ -50,10 +40,10 @@ JqueryGenerator.prototype.askFor = function askFor() {
     message: 'Project Name:'
   }, {
     name: 'title',
-    'default': 'Awesome jQuery plugin'
+    default: 'Awesome jQuery plugin'
   }, {
     name: 'description',
-    'default': 'The best jQuery plugin ever.'
+    default: 'The best jQuery plugin ever.'
   }, {
     name: 'version'
   }, {
@@ -62,7 +52,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
     name: 'bugs'
   }, {
     name: 'license',
-    'default': 'MIT'
+    default: 'MIT'
   }, {
     name: 'github_username',
   }, {
@@ -102,13 +92,13 @@ JqueryGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
-JqueryGenerator.prototype.src = function app() {
+JqueryGenerator.prototype.src = function src() {
   this.mkdir('src');
   this.copy('src/jshintrc', 'src/.jshintrc');
   this.template('src/name.js', 'src/' + this.slugname + '.js');
 };
 
-JqueryGenerator.prototype.test = function app() {
+JqueryGenerator.prototype.test = function test() {
   this.mkdir('test');
   this.copy('test/jshintrc', 'test/.jshintrc');
   this.template('test/name_test.js', 'test/' + this.slugname + '_test.js');
