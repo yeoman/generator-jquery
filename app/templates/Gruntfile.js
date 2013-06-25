@@ -23,7 +23,7 @@ module.exports = function (grunt) {
       dist: {
         src: ['src/<%%= pkg.name %>.js'],
         dest: 'dist/jquery.<%%= pkg.name %>.js'
-      },
+      }
     },
     uglify: {
       options: {
@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       dist: {
         src: '<%%= concat.dist.dest %>',
         dest: 'dist/jquery.<%%= pkg.name %>.min.js'
-      },
+      }
     },
     qunit: {
       files: ['test/**/*.html']
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
           jshintrc: 'test/.jshintrc'
         },
         src: ['test/**/*.js']
-      },
+      }
     },
     watch: {
       gruntfile: {
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
       test: {
         files: '<%%= jshint.test.src %>',
         tasks: ['jshint:test', 'qunit']
-      },
+      }
     },
     connect: {
       server: {
