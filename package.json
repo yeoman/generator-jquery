@@ -1,6 +1,6 @@
 {
   "name": "generator-jquery",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A jQuery generator for Yeoman",
   "keywords": [
     "yeoman-generator",
