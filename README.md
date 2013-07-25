@@ -13,9 +13,7 @@ Maintained by [Pascal Hartig](https://github.com/passy).
 
 ## Installation
 
-If you haven't already done so, install [Yeoman][].
-
-Once Yeoman is installed, install this generator via `npm install -g generator-jquery`.
+Install this generator by running: `npm install -g generator-jquery`.
 
 
 ## Usage
