@@ -37,7 +37,11 @@ module.exports = function (grunt) {
       }
     },
     qunit: {
-      files: ['test/**/*.html']
+      all: {
+        options: {
+          urls: ['http://localhost:9000/test/<%%= pkg.name %>.html']
+        }
+      }
     },
     jshint: {
       gruntfile: {
@@ -94,6 +98,6 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify']);
-  grunt.registerTask('test', ['jshint', 'qunit']);
   grunt.registerTask('server', ['connect', 'watch']);
+  grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
 };
