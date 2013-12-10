@@ -88,7 +88,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
-JqueryGenerator.prototype.src = function src() {
+JqueryGenerator.prototype.source = function source() {
   this.mkdir('src');
   this.copy('src/jshintrc', 'src/.jshintrc');
   this.template('src/name.js', 'src/' + this.slugname + '.js');
