@@ -25,7 +25,8 @@ describe('jquery generator', function () {
       '.editorconfig',
       '.bowerrc',
       ['package.json', /"name": "myplugin"/],
-      'bower.json'
+      'bower.json',
+      'myplugin.jquery.json'
     ];
 
     helpers.mockPrompt(this.app, {
