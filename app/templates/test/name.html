@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title><%= props.title || props.name %> Test Suite</title>
-  <!-- Load local jQuery. --><% if (props.jquery_version && props.jquery_version < '1.11.0') { %>
+  <!-- Load local jQuery. --><% if (props.jquery_version && compareVersion(props.jquery_version, '1.11.0') === -1) { %>
   <script src="../bower_components/jquery/jquery.js"></script><% } else { %>
   <script src="../bower_components/jquery/dist/jquery.js"></script><% } %>
   <!-- Load local QUnit. -->

@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var compareVersion = require('compare-version');
 var yeoman = require('yeoman-generator');
 
 
@@ -12,6 +13,7 @@ var JqueryGenerator = module.exports = function JqueryGenerator(args, options) {
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  this.compareVersion = compareVersion;
 };
 
 util.inherits(JqueryGenerator, yeoman.generators.NamedBase);
@@ -38,7 +40,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
   var prompts = [{
     name: 'name',
     message: 'Project Name',
-    default: path.dirname(process.cwd())
+    default: this.appname
   }, {
     name: 'title',
     default: 'Awesome jQuery plugin'
