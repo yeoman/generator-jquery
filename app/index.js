@@ -1,8 +1,10 @@
 'use strict';
+var chalk = require('chalk');
 var util = require('util');
 var path = require('path');
 var compareVersion = require('compare-version');
 var yeoman = require('yeoman-generator');
+var pkgName = require('pkg-name');
 
 
 var JqueryGenerator = module.exports = function JqueryGenerator(args, options) {
@@ -20,6 +22,7 @@ util.inherits(JqueryGenerator, yeoman.generators.NamedBase);
 
 JqueryGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
+  var log = this.log;
 
   // welcome message
   var welcome = this.yeoman +
@@ -35,12 +38,32 @@ JqueryGenerator.prototype.askFor = function askFor() {
   'Publishing Your Plugin  http://plugins.jquery.com/docs/publish/\n' +
   'Package Manifest        http://plugins.jquery.com/docs/package-manifest/\n';
 
-  console.log(welcome);
+  log(welcome);
 
   var prompts = [{
     name: 'name',
     message: 'Project Name',
-    default: this.appname
+    default: this.appname,
+    filter: function (input) {
+      var done = this.async();
+
+      pkgName(input, function (err, available) {
+        if (!available.bower && !available.npm) {
+          log.info(chalk.yellow(input) + ' already exists on npm and Bower. You might want to use another name.');
+        }
+        else {
+          if (!available.bower) {
+            log.info(chalk.yellow(input) + ' already exists on Bower. You might want to use another name.');
+          }
+
+          if (!available.npm) {
+            log.info(chalk.yellow(input) + ' already exists on npm. You might want to use another name.');
+          }
+        }
+
+        done(input);
+      });
+    }
   }, {
     name: 'title',
     default: 'Awesome jQuery plugin'
