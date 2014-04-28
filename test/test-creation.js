@@ -24,7 +24,6 @@ describe('jquery generator', function () {
       '.jshintrc',
       '.editorconfig',
       '.bowerrc',
-      ['package.json', /"name": "myplugin"/],
       'bower.json',
       'myplugin.jquery.json'
     ];
@@ -44,7 +43,8 @@ describe('jquery generator', function () {
     });
 
     this.app.run({}, function () {
-      helpers.assertFiles(expected);
+      helpers.assertFile(expected);
+      helpers.assertFileContent('package.json', /"name": "myplugin"/);
       done();
     });
   });
