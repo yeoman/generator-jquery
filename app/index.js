@@ -26,7 +26,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
   var log = this.log;
 
   // welcome message
-  var welcome = this.yeoman + multiline(function () { /*
+  var welcome = this.yeoman + multiline.stripIndent(function () { /*
   _Project Name_ should not contain "jquery" or "js" and should be a unique ID not already in use at plugins.jquery.com.
 
   _Project title_ should be a human-readable title, and doesn\'t need to contain the word "jQuery", although it may.
