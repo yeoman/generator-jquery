@@ -5,7 +5,7 @@ var path = require('path');
 var compareVersion = require('compare-version');
 var yeoman = require('yeoman-generator');
 var pkgName = require('pkg-name');
-
+var multiline = require('multiline');
 
 var JqueryGenerator = module.exports = function JqueryGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -25,18 +25,19 @@ JqueryGenerator.prototype.askFor = function askFor() {
   var log = this.log;
 
   // welcome message
-  var welcome = this.yeoman +
-  '_Project Name_ should not contain "jquery" or "js" and ' +
-  'should be a unique ID not already in use at plugins.jquery.com. _Project ' +
-  'title_ should be a human-readable title, and doesn\'t need to contain ' +
-  'the word "jQuery", although it may. For example, a plugin titled "Awesome ' +
-  'Plugin" might have the name "awesome-plugin".' +
-  '\n\n' +
-  'For more information, please see the following documentation:' +
-  '\n\n' +
-  'Naming Your Plugin      http://plugins.jquery.com/docs/names/\n' +
-  'Publishing Your Plugin  http://plugins.jquery.com/docs/publish/\n' +
-  'Package Manifest        http://plugins.jquery.com/docs/package-manifest/\n';
+  var welcome = this.yeoman + multiline.stripIndent(function () {/*
+    _Project Name_ should not contain "jquery" or "js" and should be a unique ID not already in use at plugins.jquery.com.
+
+    _Project title_ should be a human-readable title, and doesn't need to contain the word "jQuery", although it may.
+
+    For example, a plugin titled "Awesome Plugin" might have the name "awesome-plugin".
+
+    For more information, please see the following documentation:
+
+    Naming Your Plugin      http://plugins.jquery.com/docs/names/
+    Publishing Your Plugin  http://plugins.jquery.com/docs/publish/
+    Package Manifest        http://plugins.jquery.com/docs/package-manifest/
+  */});
 
   log(welcome);
 
