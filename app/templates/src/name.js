@@ -9,30 +9,30 @@
 (function ($) {
 
   // Collection method.
-  $.fn.awesome = function () {
+  $.fn.<%= props.name %> = function () {
     return this.each(function (i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
+      // Do something to each selected element.
+      $(this).html('<%= props.name %>' + i);
     });
   };
 
   // Static method.
-  $.awesome = function (options) {
+  $.<%= props.name %> = function (options) {
     // Override default options with passed-in options.
-    options = $.extend({}, $.awesome.options, options);
-    // Return something awesome.
-    return 'awesome' + options.punctuation;
+    options = $.extend({}, $.<%= props.name %>.options, options);
+    // Return the name of your plugin plus a punctuation character.
+    return '<%= props.name %>' + options.punctuation;
   };
 
   // Static method default options.
-  $.awesome.options = {
+  $.<%= props.name %>.options = {
     punctuation: '.'
   };
 
   // Custom selector.
-  $.expr[':'].awesome = function (elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
+  $.expr[':'].<%= props.name %> = function (elem) {
+    // Does this element contain the name of your plugin?
+    return $(elem).text().indexOf('<%= props.name %>') !== -1;
   };
 
 }(jQuery));
