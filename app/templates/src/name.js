@@ -9,30 +9,30 @@
 (function ($) {
 
   // Collection method.
-  $.fn.awesome = function () {
+  $.fn.<%= camelname %> = function () {
     return this.each(function (i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
+      // Do something to each selected element.
+      $(this).html('<%= camelname %>' + i);
     });
   };
 
   // Static method.
-  $.awesome = function (options) {
+  $.<%= camelname %> = function (options) {
     // Override default options with passed-in options.
-    options = $.extend({}, $.awesome.options, options);
-    // Return something awesome.
-    return 'awesome' + options.punctuation;
+    options = $.extend({}, $.<%= camelname %>.options, options);
+    // Return the name of your plugin plus a punctuation character.
+    return '<%= camelname %>' + options.punctuation;
   };
 
   // Static method default options.
-  $.awesome.options = {
+  $.<%= camelname %>.options = {
     punctuation: '.'
   };
 
   // Custom selector.
-  $.expr[':'].awesome = function (elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
+  $.expr[':'].<%= camelname %> = function (elem) {
+    // Does this element contain the name of your plugin?
+    return $(elem).text().indexOf('<%= camelname %>') !== -1;
   };
 
 }(jQuery));

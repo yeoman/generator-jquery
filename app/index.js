@@ -111,6 +111,7 @@ JqueryGenerator.prototype.askFor = function askFor() {
     this.props = props;
     // For easier access in the templates.
     this.slugname = this._.slugify(props.name);
+    this.camelname= this._.camelize(this.slugname);
     cb();
   }.bind(this));
 };
