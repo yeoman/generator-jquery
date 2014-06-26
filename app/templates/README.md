@@ -6,8 +6,8 @@
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/<%= props.github_username %>/jquery-<%= slugname %>/master/dist/jquery.<%= slugname %>.min.js
-[max]: https://raw.github.com/<%= props.github_username %>/jquery-<%= slugname %>/master/dist/jquery.<%= slugname %>.js
+[min]: https://raw.githubusercontent.com/<%= props.github_username %>/jquery-<%= slugname %>/master/dist/jquery.<%= slugname %>.min.js
+[max]: https://raw.githubusercontent.com/<%= props.github_username %>/jquery-<%= slugname %>/master/dist/jquery.<%= slugname %>.js
 
 In your web page:
 
