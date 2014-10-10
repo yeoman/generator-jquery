@@ -23,11 +23,11 @@
     "test": "mocha"
   },
   "dependencies": {
-    "chalk": "~0.4.0",
+    "chalk": "^0.5.1",
     "compare-version": "~0.1.0",
-    "multiline": "^0.3.4",
-    "pkg-name": "~0.1.0",
-    "yeoman-generator": "~0.16.0"
+    "multiline": "^1.0.1",
+    "pkg-name": "^1.0.0",
+    "yeoman-generator": "^0.17.7"
   },
   "devDependencies": {
     "mocha": "*"
