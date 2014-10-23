@@ -9,16 +9,9 @@
   ],
   "homepage": "https://github.com/yeoman/generator-jquery",
   "bugs": "https://github.com/yeoman/generator-jquery/issues",
-  "author": {
-    "name": "Pascal Hartig",
-    "email": "phartig@rdrei.net",
-    "url": "https://github.com/passy"
-  },
+  "author": "The Yeoman Team",
   "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yeoman/generator-jquery.git"
-  },
+  "repository": "yeoman/generator-jquery",
   "scripts": {
     "test": "mocha"
   },
