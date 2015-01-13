@@ -1,7 +1,2 @@
-node_modules/
-temp/
-
-npm-debug.log
-.swp
-.AppleDouble
-.DS_Store
+node_modules
+temp

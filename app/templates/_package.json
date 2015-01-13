@@ -5,33 +5,27 @@
   "keywords": [
     "jquery-plugin"
   ],
-  "homepage": "https://github.com/<%= props.github_username %>/<%= slugname %>",<% if (props.bugs) { %>
-  "bugs": "<%= props.bugs %>",<% } %>
   "author": {
     "name": "<%= props.author_name %>",
     "email": "<%= props.author_email %>",
     "url": "https://github.com/<%= props.github_username %>"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/<%= props.github_username %>/<%= slugname %>.git"
+  "repository": "<%= props.github_username %>/<%= slugname %>",
+  "license": "<%= props.license %>",
+  "scripts": {
+    "test": "grunt"
   },
-  "licenses": [
-    {
-      "type": "<%= props.license %>"
-    }
-  ],
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-qunit": "~0.5.1",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-uglify": "~0.5.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-connect": "~0.8.0",
-    "time-grunt": "~0.3.2",
-    "load-grunt-tasks": "~0.6.0",
-    "jshint-stylish": "~0.2.0",
-    "grunt": "~0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-connect": "^0.9.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-qunit": "^0.5.1",
+    "grunt-contrib-uglify": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jshint-stylish": "^1.0.0",
+    "load-grunt-tasks": "^2.0.0",
+    "time-grunt": "^1.0.0"
   }
 }

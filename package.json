@@ -1,15 +1,13 @@
 {
   "name": "generator-jquery",
   "version": "0.1.1",
-  "description": "A jQuery generator for Yeoman",
+  "description": "Generate a jQuery plugin",
   "keywords": [
     "yeoman-generator",
     "scaffold",
     "jquery"
   ],
-  "homepage": "https://github.com/yeoman/generator-jquery",
-  "bugs": "https://github.com/yeoman/generator-jquery/issues",
-  "author": "The Yeoman Team",
+  "author": "Yeoman team",
   "main": "app/index.js",
   "repository": "yeoman/generator-jquery",
   "scripts": {
@@ -20,24 +18,16 @@
     "compare-version": "~0.1.0",
     "multiline": "^1.0.1",
     "pkg-name": "^1.0.0",
-    "yeoman-generator": "^0.17.7"
+    "yeoman-generator": "^0.18.6"
   },
   "devDependencies": {
     "mocha": "*"
   },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
-  },
   "engines": {
-    "node": ">=0.10.0",
-    "npm": ">=1.2.10"
+    "node": ">=0.10.0"
   },
   "files": [
     "app"
   ],
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+  "license": "MIT"
 }

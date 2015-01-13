@@ -1,62 +1,36 @@
-(function($) {
-  /*
-    ======== A Handy Little QUnit Reference ========
-    http://api.qunitjs.com/
-
-    Test methods:
-      module(name, {[setup][ ,teardown]})
-      test(name, callback)
-      expect(numberOfAssertions)
-      stop(increment)
-      start(decrement)
-    Test assertions:
-      ok(value, [message])
-      equal(actual, expected, [message])
-      notEqual(actual, expected, [message])
-      deepEqual(actual, expected, [message])
-      notDeepEqual(actual, expected, [message])
-      strictEqual(actual, expected, [message])
-      notStrictEqual(actual, expected, [message])
-      throws(block, [expected], [message])
-  */
-
-  module('jQuery#awesome', {
-    // This will run before each test in this module.
-    setup: function() {
+(function ($) {
+  module('jQuery#<%= camelname %>', {
+    setup: function () {
       this.elems = $('#qunit-fixture').children();
     }
   });
 
-  test('is chainable', function() {
+  test('is chainable', function () {
     expect(1);
-    // Not a bad test to run on collection methods.
-    strictEqual(this.elems.awesome(), this.elems, 'should be chainable');
+    strictEqual(this.elems.<%= camelname %>(), this.elems, 'should be chainable');
   });
 
-  test('is awesome', function() {
+  test('is <%= camelname %>', function () {
     expect(1);
-    strictEqual(this.elems.awesome().text(), 'awesome0awesome1awesome2', 'should be awesome');
+    strictEqual(this.elems.<%= camelname %>().text(), '<%= camelname %>0<%= camelname %>1<%= camelname %>2', 'should be <%= camelname %>');
   });
 
-  module('jQuery.awesome');
+  module('jQuery.<%= camelname %>');
 
-  test('is awesome', function() {
+  test('is <%= camelname %>', function () {
     expect(2);
-    strictEqual($.awesome(), 'awesome.', 'should be awesome');
-    strictEqual($.awesome({punctuation: '!'}), 'awesome!', 'should be thoroughly awesome');
+    strictEqual($.<%= camelname %>(), '<%= camelname %>.', 'should be <%= camelname %>');
+    strictEqual($.<%= camelname %>({punctuation: '!'}), '<%= camelname %>!', 'should be thoroughly <%= camelname %>');
   });
 
-  module(':awesome selector', {
-    // This will run before each test in this module.
-    setup: function() {
+  module(':<%= camelname %> selector', {
+    setup: function () {
       this.elems = $('#qunit-fixture').children();
     }
   });
 
-  test('is awesome', function() {
+  test('is <%= camelname %>', function () {
     expect(1);
-    // Use deepEqual & .get() when comparing jQuery objects.
-    deepEqual(this.elems.filter(':awesome').get(), this.elems.last().get(), 'knows awesome when it sees it');
+    deepEqual(this.elems.filter(':<%= camelname %>').get(), this.elems.last().get());
   });
-
 }(jQuery));

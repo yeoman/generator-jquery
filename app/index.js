@@ -4,8 +4,7 @@ var compareVersion = require('compare-version');
 var yeoman = require('yeoman-generator');
 var pkgName = require('pkg-name');
 
-var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
-
+module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
     this.compareVersion = compareVersion;
@@ -15,11 +14,10 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
     var cb = this.async();
     var log = this.log;
 
-    // welcome message
     var welcome = this.yeoman +
-    '_Project Name_ should not contain "jquery" or "js" and ' +
-    'should be a unique ID not already in use at plugins.jquery.com. _Project ' +
-    'title_ should be a human-readable title, and doesn\'t need to contain ' +
+    '"Project Name" should not contain "jquery" or "js" and ' +
+    'should be a unique ID not already in use at plugins.jquery.com. "Project ' +
+    'title" should be a human-readable title, and doesn\'t need to contain ' +
     'the word "jQuery", although it may. For example, a plugin titled "Awesome ' +
     'Plugin" might have the name "awesome-plugin".' +
     '\n\n' +
@@ -41,8 +39,7 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
         pkgName(input, function (err, available) {
           if (!available.bower && !available.npm) {
             log.info(chalk.yellow(input) + ' already exists on npm and Bower. You might want to use another name.');
-          }
-          else {
+          } else {
             if (!available.bower) {
               log.info(chalk.yellow(input) + ' already exists on Bower. You might want to use another name.');
             }
@@ -66,8 +63,6 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
     }, {
       name: 'repository'
     }, {
-      name: 'bugs'
-    }, {
       name: 'license',
       default: 'MIT'
     }, {
@@ -83,7 +78,9 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
 
     var nameToMessage = function (name) {
       return name.split('_').map(
-        function (x) { return this._.capitalize(x); }.bind(this)
+        function (x) {
+          return this._.capitalize(x);
+        }.bind(this)
       ).join(' ') + ':';
     }.bind(this);
 
@@ -101,6 +98,7 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
       this.props = props;
       // For easier access in the templates.
       this.slugname = this._.slugify(props.name);
+      this.camelname = this._.camelize(props.name);
       cb();
     }.bind(this));
   },
@@ -111,8 +109,7 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
     this.copy('gitignore', '.gitignore');
     this.copy('travis.yml', '.travis.yml');
     this.template('_package.json', 'package.json');
-    this.template('_bower.json', 'bower.json');
-    this.template('_bowerrc', '.bowerrc');
+    this.template('bower.json', 'bower.json');
   },
 
   source: function () {
@@ -129,15 +126,15 @@ var JqueryGenerator = module.exports = yeoman.generators.Base.extend({
   },
 
   writing: function () {
-    this.template('README.md');
+    this.template('readme.md');
     this.template('Gruntfile.js');
-    this.template('_name.jquery.json', this.slugname + '.jquery.json');
-    this.copy('CONTRIBUTING.md', 'CONTRIBUTING.md');
+    this.template('name.jquery.json', this.slugname + '.jquery.json');
+    this.copy('contributing.md', 'contributing.md');
   },
 
   install: function () {
-
-      this.installDependencies({ skipInstall: this.options['skip-install'] });
+    this.installDependencies({
+      skipInstall: this.options['skip-install']
+    });
   }
-
 });

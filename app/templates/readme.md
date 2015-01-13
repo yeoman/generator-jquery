@@ -1,6 +1,7 @@
 # <%= props.title || props.name %>
 
-<%= props.description %>
+> <%= props.description %>
+
 
 ## Getting Started
 
@@ -15,17 +16,13 @@ In your web page:
 <script src="jquery.js"></script>
 <script src="dist/<%= slugname %>.min.js"></script>
 <script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
+  jQuery(function ($) {
+    $.awesome(); // "awesome"
+  });
 </script>
 ```
 
-## Documentation
-_(Coming soon)_
 
-## Examples
-_(Coming soon)_
+## License
 
-## Release History
-_(Nothing yet)_
+<%= props.license %> © <%= props.author_name %>

@@ -5,9 +5,7 @@
  * Copyright (c) <%= currentYear %> <%= props.author_name %>
  * Licensed under the <%= props.license %> license.
  */
-
 (function ($) {
-
   // Collection method.
   $.fn.<%= camelname %> = function () {
     return this.each(function (i) {
@@ -30,9 +28,7 @@
   };
 
   // Custom selector.
-  $.expr[':'].<%= camelname %> = function (elem) {
-    // Does this element contain the name of your plugin?
-    return $(elem).text().indexOf('<%= camelname %>') !== -1;
+  $.expr[':'].<%= camelname %> = function (el) {
+    return $(el).text() === 'awesome test markup';
   };
-
 }(jQuery));
