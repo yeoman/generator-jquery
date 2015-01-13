@@ -1,6 +1,6 @@
 {
   "name": "generator-jquery",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Generate a jQuery plugin",
   "keywords": [
     "yeoman-generator",
