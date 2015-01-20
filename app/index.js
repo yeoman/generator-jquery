@@ -10,10 +10,7 @@ module.exports = yeoman.generators.Base.extend({
     this.compareVersion = compareVersion;
   },
 
-  prompting: function () {
-    var cb = this.async();
-    var log = this.log;
-
+  welcome: function () {
     var welcome = this.yeoman +
     '"Project Name" should not contain "jquery" or "js" and ' +
     'should be a unique ID not already in use at plugins.jquery.com. "Project ' +
@@ -27,32 +24,50 @@ module.exports = yeoman.generators.Base.extend({
     'Publishing Your Plugin  http://plugins.jquery.com/docs/publish/\n' +
     'Package Manifest        http://plugins.jquery.com/docs/package-manifest/\n';
 
-    log(welcome);
+    this.log(welcome);
+  },
+
+  promptingName: function () {
+    var cb = this.async();
 
     var prompts = [{
       name: 'name',
       message: 'Project Name',
       default: this.appname,
-      filter: function (input) {
+    }, {
+      type: 'confirm',
+      name: 'pkgName',
+      message: 'The name above already exists on npm or Bower, choose another?',
+      default: true,
+      when: function (answers) {
         var done = this.async();
 
-        pkgName(input, function (err, available) {
-          if (!available.bower && !available.npm) {
-            log.info(chalk.yellow(input) + ' already exists on npm and Bower. You might want to use another name.');
-          } else {
-            if (!available.bower) {
-              log.info(chalk.yellow(input) + ' already exists on Bower. You might want to use another name.');
-            }
-
-            if (!available.npm) {
-              log.info(chalk.yellow(input) + ' already exists on npm. You might want to use another name.');
-            }
+        pkgName(answers.name, function (err, available) {
+          if (!available.npm || !available.bower) {
+            done(true);
           }
 
-          done(input);
+          done(false);
         });
       }
-    }, {
+    }];
+
+    this.prompt(prompts, function (props) {
+      if (props.pkgName) {
+        return this.promptingName();
+      }
+
+      // For easier access in the templates.
+      this.slugname = this._.slugify(props.name);
+
+      cb();
+    }.bind(this));
+  },
+
+  prompting: function () {
+    var cb = this.async();
+
+    var prompts = [{
       name: 'title',
       default: 'Awesome jQuery plugin'
     }, {
@@ -97,7 +112,6 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.props = props;
       // For easier access in the templates.
-      this.slugname = this._.slugify(props.name);
       this.camelname = this._.camelize(props.name);
       cb();
     }.bind(this));
