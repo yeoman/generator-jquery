@@ -19,4 +19,4 @@ $ yo jquery
 
 ## License
 
-MIT © Yeoman team
+MIT © Yeoman

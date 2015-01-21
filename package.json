@@ -7,15 +7,15 @@
     "scaffold",
     "jquery"
   ],
-  "author": "Yeoman team",
+  "author": "Yeoman",
   "main": "app/index.js",
   "repository": "yeoman/generator-jquery",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --timeout 20000"
   },
   "dependencies": {
     "chalk": "^0.5.1",
-    "compare-version": "~0.1.0",
+    "compare-version": "^0.1.0",
     "multiline": "^1.0.1",
     "pkg-name": "^1.0.0",
     "yeoman-generator": "^0.18.6"
