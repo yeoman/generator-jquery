@@ -41,7 +41,7 @@ describe('jquery generator', function () {
       'jquery_version': '1.9.1'
     });
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       helpers.assertFile(expected);
       helpers.assertFileContent('package.json', /"name": "myplugin"/);
       done();
