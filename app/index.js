@@ -10,23 +10,6 @@ module.exports = yeoman.generators.Base.extend({
     this.compareVersion = compareVersion;
   },
 
-  welcome: function () {
-    var welcome = this.yeoman +
-    '"Project Name" should not contain "jquery" or "js" and ' +
-    'should be a unique ID not already in use at plugins.jquery.com. "Project ' +
-    'title" should be a human-readable title, and doesn\'t need to contain ' +
-    'the word "jQuery", although it may. For example, a plugin titled "Awesome ' +
-    'Plugin" might have the name "awesome-plugin".' +
-    '\n\n' +
-    'For more information, please see the following documentation:' +
-    '\n\n' +
-    'Naming Your Plugin      http://plugins.jquery.com/docs/names/\n' +
-    'Publishing Your Plugin  http://plugins.jquery.com/docs/publish/\n' +
-    'Package Manifest        http://plugins.jquery.com/docs/package-manifest/\n';
-
-    this.log(welcome);
-  },
-
   promptingName: function () {
     var cb = this.async();
 
