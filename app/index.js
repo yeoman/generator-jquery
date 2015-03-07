@@ -72,6 +72,20 @@ module.exports = yeoman.generators.Base.extend({
     }, {
       name: 'jquery_version',
       message: 'jQuery Version'
+    }, {
+      type: 'list',
+      name: 'kind',
+      message: 'What kind of jQuery plugin would you like to create?',
+      choices: [{
+        name: 'Collection method',
+        value: 'collection_method'
+      }, {
+        name: 'Static method',
+        value: 'static_method'
+      }, {
+        name: 'Custom selector',
+        value: 'custom_selector'
+      }]
     }];
 
     var nameToMessage = function (name) {

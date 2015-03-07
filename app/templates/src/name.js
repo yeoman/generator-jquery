@@ -6,29 +6,23 @@
  * Licensed under the <%= props.license %> license.
  */
 (function ($) {
-  // Collection method.
-  $.fn.<%= camelname %> = function () {
+  <% if (props.kind === 'collection_method') { %>$.fn.<%= camelname %> = function () {
     return this.each(function (i) {
       // Do something to each selected element.
       $(this).html('<%= camelname %>' + i);
     });
-  };
-
-  // Static method.
-  $.<%= camelname %> = function (options) {
+  };<% } if (props.kind === 'static_method') { %>$.<%= camelname %> = function (options) {
     // Override default options with passed-in options.
     options = $.extend({}, $.<%= camelname %>.options, options);
     // Return the name of your plugin plus a punctuation character.
     return '<%= camelname %>' + options.punctuation;
   };
 
-  // Static method default options.
+  // Default options.
   $.<%= camelname %>.options = {
     punctuation: '.'
-  };
-
-  // Custom selector.
+  };<% } if (props.kind === 'custom_selector') { %>
   $.expr[':'].<%= camelname %> = function (el) {
     return $(el).text() === 'awesome test markup';
-  };
+  };<% } %>
 }(jQuery));
