@@ -14,7 +14,6 @@
     "test": "mocha --timeout 20000"
   },
   "dependencies": {
-    "chalk": "^1.0.0",
     "compare-version": "^0.1.2",
     "multiline": "^1.0.1",
     "pkg-name": "^1.0.0",

@@ -1,5 +1,4 @@
 'use strict';
-var chalk = require('chalk');
 var compareVersion = require('compare-version');
 var yeoman = require('yeoman-generator');
 var pkgName = require('pkg-name');
