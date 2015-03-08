@@ -139,7 +139,6 @@ module.exports = yeoman.generators.Base.extend({
   writing: function () {
     this.template('readme.md');
     this.template('Gruntfile.js');
-    this.template('name.jquery.json', this.slugname + '.jquery.json');
     this.copy('contributing.md', 'contributing.md');
   },
 

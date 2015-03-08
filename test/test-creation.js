@@ -23,8 +23,7 @@ describe('jquery generator', function () {
     var expected = [
       '.jshintrc',
       '.editorconfig',
-      'bower.json',
-      'myplugin.jquery.json'
+      'bower.json'
     ];
 
     helpers.mockPrompt(this.app, {
