@@ -41,6 +41,7 @@ module.exports = yeoman.generators.Base.extend({
 
       // For easier access in the templates.
       this.slugname = this._.slugify(props.name);
+      this.camelname = this._.camelize(props.name);
 
       cb();
     }.bind(this));
@@ -107,8 +108,6 @@ module.exports = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.props = props;
-      // For easier access in the templates.
-      this.camelname = this._.camelize(props.name);
       cb();
     }.bind(this));
   },
