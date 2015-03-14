@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "compare-version": "^0.1.2",
+    "is-online": "^3.1.0",
     "multiline": "^1.0.1",
     "pkg-name": "^1.0.0",
     "yeoman-generator": "^0.18.9"

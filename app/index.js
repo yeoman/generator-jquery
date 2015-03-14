@@ -1,6 +1,7 @@
 'use strict';
 var compareVersion = require('compare-version');
 var yeoman = require('yeoman-generator');
+var isOnline = require('is-online');
 var pkgName = require('pkg-name');
 
 module.exports = yeoman.generators.Base.extend({
@@ -24,12 +25,19 @@ module.exports = yeoman.generators.Base.extend({
       when: function (answers) {
         var done = this.async();
 
-        pkgName(answers.name, function (err, available) {
-          if (!available.npm || !available.bower) {
-            done(true);
+        isOnline(function (error, online) {
+          if (!online) {
+            done(false);
+            return;
           }
 
-          done(false);
+          pkgName(answers.name, function (err, available) {
+            if (!available.npm || !available.bower) {
+              done(true);
+            }
+
+            done(false);
+          });
         });
       }
     }];
