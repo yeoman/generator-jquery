@@ -73,10 +73,13 @@ module.exports = yeoman.generators.Base.extend({
       default: 'MIT'
     }, {
       name: 'github_username',
+      store: true
     }, {
-      name: 'author_name'
+      name: 'author_name',
+      store: true
     }, {
-      name: 'author_email'
+      name: 'author_email',
+      store: true
     }, {
       name: 'jquery_version',
       message: 'jQuery Version'
